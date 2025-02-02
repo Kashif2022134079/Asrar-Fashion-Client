@@ -8,40 +8,40 @@ import useCart from "../../../hooks/useCart";
 
 const BurqaDetails = () => {
   const item = useLoaderData();
-  const { name, category, details, price ,fabrics, photo,_id } = item;
+  const { name, category, details, price, fabrics, photo, _id } = item;
   console.log(item);
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
-  const [,refetch] = useCart();
+  const [, refetch] = useCart();
 
- 
+
 
   const handleAddToCart = () => {
     if (user && user?.email) {
       // send item to the database
       const cartItem = {
-        burqaId : _id,
-        email : user.email,
+        burqaId: _id,
+        email: user.email,
         name,
         photo,
         price,
       };
       axiosSecure.post('/carts', cartItem)
-      .then(res=>{
-        console.log(res.data);
-        if(res.data.insertedId){
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${item.name} added successfully`,
-            showConfirmButton: false,
-            timer: 1500
-          });
-          refetch();
-        }
-      })
+        .then(res => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${item.name} added successfully`,
+              showConfirmButton: false,
+              timer: 1500
+            });
+            refetch();
+          }
+        })
     }
     else {
       Swal.fire({
@@ -55,7 +55,7 @@ const BurqaDetails = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           // send the user to the login page
-          navigate('/login', {state:{from :location}})
+          navigate('/login', { state: { from: location } })
         }
       });
     }
@@ -64,9 +64,18 @@ const BurqaDetails = () => {
     <div>
       <Navbar></Navbar>
       <div className="grid md:grid-cols-2 mt-4">
-        <div>
+        {/* <div>
           <img className="w-full h-[600px] p-4" src={photo} alt="" />
+        </div> */}
+
+        <div className="bg-white rounded-lg shadow-lg ">
+          <img
+            className="w-full h-[550px] p-5 object-cover transform hover:scale-105 transition-transform duration-300"
+            src={photo}
+            alt={name}
+          />
         </div>
+
         <div className="p-10">
           <div className="p-4">
             <h3 className="text-2xl font-semibold">{name}</h3>
