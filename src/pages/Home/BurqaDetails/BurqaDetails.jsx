@@ -103,7 +103,7 @@ const BurqaDetails = () => {
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium">Reviews</div>
               <div className="collapse-content">
-                <p>There is no review yet</p>
+                <p>There is no review yet, But you can in messanger.</p>
               </div>
             </div>
             <button
