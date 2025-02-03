@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import useCart from "../../hooks/useCart";
 import useAdmin from "../../hooks/useAdmin";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -27,14 +28,16 @@ const Navbar = () => {
         {
             user && isAdmin && <li><Link to='/dashboard/adminHome'>DashBoard</Link></li>
         }
-       { user && !isAdmin && <li><Link to="/dashboard/cart">
-            <button className="btn">
-                cart
-                <div className="badge badge-outline">+{cart.length}</div>
+        {user && !isAdmin && <li><Link to="/dashboard/cart">
+            <button className="flex items-center space-x-1 border rounded px-1">
+                <FaShoppingCart className="mr-1" />
+                    cart
+                <div className="badge badge-outline ml-1">+{cart.length}</div>
             </button>
+
         </Link></li>
         }
-      
+
 
     </>
     return (
