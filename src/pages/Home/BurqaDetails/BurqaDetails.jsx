@@ -68,9 +68,9 @@ const BurqaDetails = () => {
           <img className="w-full h-[600px] p-4" src={photo} alt="" />
         </div> */}
 
-        <div className="bg-white rounded-lg shadow-lg ">
+        <div className="bg-white rounded-lg shadow-lg flex justify-center items-center">
           <img
-            className="w-full h-[550px] p-5 object-cover transform hover:scale-105 transition-transform duration-300"
+            className="w-full md:w-96 h-[550px] p-5  transform hover:scale-105 transition-transform duration-300"
             src={photo}
             alt={name}
           />
