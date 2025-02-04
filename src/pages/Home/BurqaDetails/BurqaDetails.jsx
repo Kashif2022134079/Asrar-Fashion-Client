@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCart from "../../../hooks/useCart";
+import { FaBackward } from "react-icons/fa";
 
 
 const BurqaDetails = () => {
@@ -63,12 +64,17 @@ const BurqaDetails = () => {
   return (
     <div>
       <Navbar></Navbar>
+      <button className="btn btn-outline"
+        onClick={() => navigate(-1)}
+      >
+        <FaBackward></FaBackward>
+      </button>
       <div className="grid md:grid-cols-2 mt-4">
         {/* <div>
           <img className="w-full h-[600px] p-4" src={photo} alt="" />
         </div> */}
 
-        <div className="bg-white rounded-lg shadow-lg flex justify-center items-center">
+        <div className="bg-gray-300 rounded-lg shadow-lg flex justify-center items-center">
           <img
             className="w-full md:w-96 h-[550px] p-5  transform hover:scale-105 transition-transform duration-300"
             src={photo}
